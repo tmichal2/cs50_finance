@@ -1,2 +1,2 @@
 # cs50_finance
-Fully functional stock simulation web app
+Stock simulation web app built with Flask and styled with Bootstrap
