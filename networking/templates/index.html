@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block main %}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Company</th>
+            <th scope="col">Symbol</th>
+            <th scope="col">Shares</th>
+            <th scope="col">Current Price</th>
+            <th scope="col">Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in user_assets if i['SUM(quantity)'] > 0 %}
+        <tr>
+            <td>{{ i['stock_name'] }}</td>
+            <td>{{ i['stock_symbol'] }}</td>
+            <td>{{ i['SUM(quantity)'] }}</td>
+            <td>{{ i['price'] }}</td>
+            <td>{{ i['total'] }}</td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td><strong>Cash</strong></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>{{ cash }}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><strong>Total Assets:</strong></td>
+            <td>{{ total_assets }}</td>
+        </tr>
+    </tbody>
+</table>
+
+
+{% endblock %}
