@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+History
+{% endblock %}
+
+{% block main %}
+
+<table class="table table-borderless table-hover table-sm table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Time</th>
+            <th scope="col">Transaction Type</th>
+            <th scope="col">Symbol</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price at Transaction</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in history %}
+        <tr>
+            <td>{{ i['timestamp'] }}</td>
+            <td>{{ i['transaction_type'] }}</td>
+            <td>{{ i['stock_symbol'] }}</td>
+            <td>{{ i['quantity'] }}</td>
+            <td>{{ i['price'] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock %}
